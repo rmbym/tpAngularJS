@@ -40,3 +40,5 @@ Cependant, il est tout de même possible d'initaliser une mission sans opératio
 ## Diagramme de classes
 
 ## Schema de la base de données 
+
+![DbSchema](https://github.com/rmbym/tpAngularJS/blob/master/readMeImgs/SchemaBDD.png)
