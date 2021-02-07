@@ -1,4 +1,4 @@
-function auth() {
+/*function auth() {
 
 }
 
@@ -6,4 +6,5 @@ function register() {
 
 }
 
-//
+*/
+// Pas utilisé

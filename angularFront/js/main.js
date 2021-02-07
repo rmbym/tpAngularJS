@@ -33,8 +33,8 @@ var mainController = angular.module('mainController',[]);
 // déclarations de controllers pour le Login, l'inscription, et le dashboard
 mainController.controller('loginController', ['$scope','$http','userDataFactory', function ($scope,$http,userDataFactory) {
     $scope.user = {
-        userMail:'y@corp.com',
-        userPwd:'aA0$101012'
+        userMail:'',
+        userPwd:''
     };
     $scope.msg = "";
     $scope.notAuth = "";
@@ -58,8 +58,9 @@ mainController.controller('loginController', ['$scope','$http','userDataFactory'
             });
     };
 }]);
-
+// controller Register
 mainController.controller('registerController', ['$scope','$http', function ($scope,$http) {
+    // Regex pour vérifier la force du mot de passe
     $scope.strongPwd = /(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[-+!*$@%#&_])([-+!*$@%#_\w]{8,})/;
     $scope.user = {};
     $scope.msg = "";
@@ -84,7 +85,7 @@ mainController.controller('registerController', ['$scope','$http', function ($sc
         }
     };
 }]);
-
+// controleur Dashboard
 mainController.controller('dashController', ['$http','$scope','userDataFactory',function ($http,$scope,userDataFactory) {
     $scope.errSubmit = "";
     $scope.noMission = true;
@@ -198,7 +199,7 @@ webApp.config(['$routeProvider',function ($routeProvider) {
         });
     }
 ]);
-
+// Protection des routes pour ne pas accéder au dashboard lorsqu'on est pas authentifié
 webApp.run(['userDataFactory','$rootScope','$location',function (userDataFactory,$rootScope,$location) {
     $rootScope.logged= false;
     $rootScope.logout = function() {
@@ -225,7 +226,7 @@ webApp.run(['userDataFactory','$rootScope','$location',function (userDataFactory
         }
     });
 }]);
-
+// Calculer le solde : une operation de crédit rajoute de l'argent au solde et un frais en enlève
 function calculateBalance(balance,opArr) {
     console.log('starting',balance,opArr);
     const reducer = (accumulator, currentValue) => {
