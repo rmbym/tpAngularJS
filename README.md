@@ -8,8 +8,8 @@ Contient l'application Front end créée avec AngularJS.
 Contient l'api qui interroge la bdd(Mongo). Créée avec NodeJs et Express.
 ### mongo (sera Containeurisé)
 Contient la base de données (MongoDB) avec 2 utilisateurs créés : 
-    * y@corp.com
-    * jd@corp.com
+* y@corp.com
+* jd@corp.com
 
 Le dossier mongo-volume contient la base de donnée tpDatabase que j'ai créé pour ce tp.
 ## Lancer le projet
