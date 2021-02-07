@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Example - example-controller-spicy-2</title>
+  
+
+  <script src="../../../angular.min.js"></script>
+  <script src="server.js"></script>
+  
+
+  
+</head>
+<body ng-server="spicyApp2">
+  <div ng-controller="SpicyController">
+ <input ng-model="customSpice">
+ <button ng-click="spicy('chili')">Chili</button>
+ <button ng-click="spicy(customSpice)">Custom spice</button>
+ <p>The food is {{spice}} spicy!</p>
+</div>
+</body>
+</html>

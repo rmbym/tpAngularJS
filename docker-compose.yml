@@ -1,0 +1,35 @@
+version: '3'
+services:
+  mongoDatabase:
+    container_name: mongoDatabase
+    image: mongo
+    restart: always
+    #ports:
+     # - '27017:27017'
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: yannick
+      MONGO_INITDB_ROOT_PASSWORD: mymdp
+      MONGO_INITDB_DATABASE: tpDatabase
+    volumes:
+    - ./mongo/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+    - ./mongo/mongo-volume:/data/db
+
+ # angular:
+  #  container_name: angular_frontEnd
+  #  build: ./angularFront
+  #  depends_on:
+  #    - express
+  #  ports:
+  #  - '4200:4200'
+  #  links:
+  #    - express
+
+  express:
+    container_name: expressApi
+    build: ./expressApi
+    depends_on:
+      - mongoDatabase
+    ports:
+    - '3000:3000'
+    links:
+      - mongoDatabase

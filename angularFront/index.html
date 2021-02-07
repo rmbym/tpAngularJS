@@ -1,0 +1,23 @@
+<!DOCTYPE html >
+<html lang="en" ng-app="webApplication">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="style/main.css" rel="stylesheet">
+    <title>Welcome !</title>
+</head>
+<script src='/js/angular-1.8.2/angular-loader.js'></script>
+<script src='/js/angular-1.8.2/angular.js'></script>
+<script src='/js/angular-1.8.2/angular-route.js'></script>
+<script src='/js/main.js'></script>
+<script src='/js/utils.js'></script>
+<body>
+<nav>
+    <a ng-show="!logged" href="/#!/home" class="btn btn-primary">Login</a>
+    <a href="/#!/dashboard" class="btn btn-success">Dashboard</a>
+    <button ng-show="logged" ng-click="logout()">Logout</button>
+</nav>
+    <div ng-view>
+    </div>
+</body>
+</html>

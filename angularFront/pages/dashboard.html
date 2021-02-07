@@ -1,0 +1,58 @@
+<section class="dashboard">
+    <h2> Dashboard </h2>
+    <p> Welcome, {{values.surName}} {{values.firstName}}</p>
+    <span ng-if="noMission">
+        {{noMissionMsg}}
+    </span>
+    <span ng-if="!noMission">
+    <table>
+        <thead>
+        <tr>
+            <th colspan="2"><h3>Mission: {{mission.name}}, (initial budget :  <span ng-bind=" mission.budget "></span> €)</h3></th>
+            <th colspan="3"><h3>Balance: <span ng-bind=" balance"></span>  €</h3></th>
+        </tr>
+            <tr><th></th>
+                <th><h3>Type</h3></th>
+                <th><h3>Date</h3></th>
+                <th><h3>Label</h3></th>
+                <th><h3>Amount</h3></th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="op in mission.operations track by $index">
+            <td><button ng-click="deleteOp($index)"> delete </button></td>
+            <td> <span ng-bind=" op.opType "></span></td>
+            <td> <span ng-bind=" op.date "></span></td>
+            <td> <span ng-bind=" op.label "></span></td>
+            <td> <span ng-bind=" op.amount "></span> €</td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+            <td colspan="5">Add a new operation !</td>
+        </tr>
+        <tr>
+            <td>
+                <button ng-click="submitNewOp()"> send </button>
+            </td>
+            <td>
+                <select ng-model="op.selectedOpt" ng-options=" opt.name for opt in opOptions track by opt.id "></select>
+            </td>
+            <td>
+                <input type="submitOpate" ng-model="op.today" >
+            </td>
+            <td>
+                <input type="text" id="opLabel"  ng-model="op.label" >
+            </td>
+            <td>
+                <input type="number" id="opAmount"  ng-model="op.amount" >
+            </td>
+            </form>
+        </tr>
+        </tfoot>
+    </table>
+        <p>
+        <span ng-bind=" errSubmit " align="center" style="color:red"></span>
+    </p>
+    </span>
+</section>

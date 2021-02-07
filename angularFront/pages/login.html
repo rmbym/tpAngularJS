@@ -1,0 +1,19 @@
+<section class="home">
+    <h2> Login </h2>
+    <span ng-bind=" msg " align="center" style="color:red"></span>
+    <span ng-bind=" notAuthMsg " align="center" style="color:red"></span>
+    <form name='login' class='forms' ng-submit="auth()">
+        <p>
+            <label for="user_mail">Email </label><br>
+            <input type="email" id="user_mail" placeholder="myEmail@corp.com" ng-model="user.userMail" required>
+        </p>
+        <p>
+            <label for="user_pwd">Password </label><br>
+            <input type="password" id="user_pwd" placeholder="myS3cretPas$w0rd" ng-model="user.userPwd" required>
+        </p>
+        <input type="submit" value="Send">
+        <p>
+            <a href="/#!/register" class="btn btn-success">register here</a>
+        </p>
+    </form>
+</section>

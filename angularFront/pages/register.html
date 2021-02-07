@@ -1,0 +1,25 @@
+<section class="register">
+    <h2> Register </h2>
+    <p> Veuillez vous inscrire </p>
+    {{msg}}
+    <span ng-bind=" invalidPwd " align="center" style="color:red"></span>
+    <form name='registerForm' class="forms" ng-submit="registerUser()">
+        <p>
+            <label for="surName">Surname </label><br>
+            <input type="text"  id="surName" ng-model="user.surName" placeholder="Doe" required>
+        </p>
+        <p>
+            <label for="firstName">First name </label><br>
+            <input type="text" id="firstName" ng-model="user.firstName" placeholder="John" required>
+        </p>
+        <p>
+            <label for="userMail">Email </label><br>
+            <input type="email" id="userMail" ng-model="user.userMail" placeholder="johnDoe@corp.com" required>
+        </p>
+        <p>
+            <label for="userPwd">Password </label><br>
+            <input name="pwdInput" type="password" id="userPwd" ng-model="user.userPwd" placeholder="mySecretPassword" ng-pattern="strongPwd" required>
+        </p>
+        <input type="submit" value="register">
+    </form>
+</section>
